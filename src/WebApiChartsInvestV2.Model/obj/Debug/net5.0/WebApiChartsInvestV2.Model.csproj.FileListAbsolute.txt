@@ -1,0 +1,14 @@
+C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Model\bin\Debug\net5.0\WebApiChartsInvestV2.Model.deps.json
+C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Model\bin\Debug\net5.0\WebApiChartsInvestV2.Model.runtimeconfig.json
+C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Model\bin\Debug\net5.0\WebApiChartsInvestV2.Model.runtimeconfig.dev.json
+C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Model\bin\Debug\net5.0\WebApiChartsInvestV2.Model.dll
+C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Model\bin\Debug\net5.0\ref\WebApiChartsInvestV2.Model.dll
+C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Model\bin\Debug\net5.0\WebApiChartsInvestV2.Model.pdb
+C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Model\obj\Debug\net5.0\WebApiChartsInvestV2.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Model\obj\Debug\net5.0\WebApiChartsInvestV2.Model.AssemblyInfoInputs.cache
+C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Model\obj\Debug\net5.0\WebApiChartsInvestV2.Model.AssemblyInfo.cs
+C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Model\obj\Debug\net5.0\WebApiChartsInvestV2.Model.csproj.CoreCompileInputs.cache
+C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Model\obj\Debug\net5.0\WebApiChartsInvestV2.Model.dll
+C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Model\obj\Debug\net5.0\ref\WebApiChartsInvestV2.Model.dll
+C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Model\obj\Debug\net5.0\WebApiChartsInvestV2.Model.pdb
+C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Model\obj\Debug\net5.0\WebApiChartsInvestV2.Model.genruntimeconfig.cache
