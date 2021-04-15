@@ -1,0 +1,37 @@
+﻿@model WebApiChartsInvestV2.Model.Entities.QuestradeToken
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>QuestradeToken</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Token)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Token)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Validade)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Validade)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IsValid)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IsValid)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.QuestradeTokenId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
