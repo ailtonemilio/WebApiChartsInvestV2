@@ -230,6 +230,9 @@ namespace WebApiChartsInvestV2.Data.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("PortfolioId");
 
                     b.ToTable("Portfolio");
@@ -265,7 +268,7 @@ namespace WebApiChartsInvestV2.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<decimal>("Comission")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18,4)");
 
                     b.Property<DateTime>("DateAction")
                         .HasColumnType("datetime2");
@@ -274,7 +277,7 @@ namespace WebApiChartsInvestV2.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("StockAmount")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18,8)");
 
                     b.Property<string>("StockCode")
                         .HasMaxLength(10)

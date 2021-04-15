@@ -13,8 +13,11 @@ namespace WebApiChartsInvestV2.Model.Entities
         [StringLength(250)]
         public string StockName { get; set; }
         public DateTime DateAction { get; set; }
+        [Column(TypeName = "decimal(18,8)")]
         public decimal StockAmount { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
         public decimal StockPrice { get; set; }
+        [Column(TypeName = "decimal(18,4)")]
         public decimal Comission { get; set; }
         public bool TypeAction { get; set; }
         public int PortfolioId { get; set; }

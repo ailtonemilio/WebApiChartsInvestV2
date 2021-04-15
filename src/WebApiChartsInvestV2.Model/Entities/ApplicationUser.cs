@@ -11,6 +11,6 @@ namespace WebApiChartsInvestV2.Model.Entities
 {
     public class ApplicationUser : IdentityUser
     {
-        
+
     }
 }
