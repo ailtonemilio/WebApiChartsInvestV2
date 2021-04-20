@@ -13,6 +13,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebApiChartsInvestV2.Data.Config;
 using WebApiChartsInvestV2.Web.Data;
+using WebApiChartsInvestV2.Model.Entities;
 
 namespace WebApiChartsInvestV2.Web
 {
@@ -33,8 +34,9 @@ namespace WebApiChartsInvestV2.Web
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ContextBase>();
+
             services.AddControllersWithViews();
         }
 
