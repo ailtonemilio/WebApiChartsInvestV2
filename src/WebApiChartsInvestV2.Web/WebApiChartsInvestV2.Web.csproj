@@ -18,8 +18,4 @@
     <ProjectReference Include="..\WebApiChartsInvestV2.Data\WebApiChartsInvestV2.Data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\ViewModel\" />
-  </ItemGroup>
-
 </Project>

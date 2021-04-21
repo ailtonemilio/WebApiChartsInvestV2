@@ -22,7 +22,10 @@ namespace WebApiChartsInvestV2.Web.Controllers
         {
             return View();
         }
-
+        public IActionResult IndexV2()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();

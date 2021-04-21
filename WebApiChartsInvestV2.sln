@@ -21,7 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.Help", "5.Help", "{70735C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiChartsInvestV2.HelpConfig", "src\WebApiChartsInvestV2.HelpConfig\WebApiChartsInvestV2.HelpConfig.csproj", "{EEE58399-6DD4-4C2D-AF70-A39FAA9CA4BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiChartsInvestV2.Web", "src\WebApiChartsInvestV2.Web\WebApiChartsInvestV2.Web.csproj", "{92DEA097-5E33-495D-BB49-14BEB72E8AF8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiChartsInvestV2.Web", "src\WebApiChartsInvestV2.Web\WebApiChartsInvestV2.Web.csproj", "{92DEA097-5E33-495D-BB49-14BEB72E8AF8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
