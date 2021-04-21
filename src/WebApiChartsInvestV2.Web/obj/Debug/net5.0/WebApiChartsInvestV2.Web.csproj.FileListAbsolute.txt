@@ -169,3 +169,7 @@ C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Web\ob
 C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Web\obj\Debug\net5.0\WebApiChartsInvestV2.Web.pdb
 C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Web\obj\Debug\net5.0\WebApiChartsInvestV2.Web.genruntimeconfig.cache
 C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Web\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
+C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Web\obj\Debug\net5.0\Razor\Views\Shared\_Login.cshtml.g.cs
+C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Web\obj\Debug\net5.0\Razor\Views\Home\IndexV2.cshtml.g.cs
+C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Web\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Web\obj\Debug\net5.0\Razor\Views\Account\LoginV1.cshtml.g.cs
