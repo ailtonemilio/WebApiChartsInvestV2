@@ -10,3 +10,6 @@ C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Identi
 C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Identity\obj\Debug\net5.0\ref\WebApiChartsInvestV2.Identity.dll
 C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Identity\obj\Debug\net5.0\WebApiChartsInvestV2.Identity.pdb
 C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Identity\obj\Debug\net5.0\WebApiChartsInvestV2.Identity.csprojAssemblyReference.cache
+C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Identity\bin\Debug\net5.0\WebApiChartsInvestV2.Identity.runtimeconfig.json
+C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Identity\bin\Debug\net5.0\WebApiChartsInvestV2.Identity.runtimeconfig.dev.json
+C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Identity\obj\Debug\net5.0\WebApiChartsInvestV2.Identity.genruntimeconfig.cache
