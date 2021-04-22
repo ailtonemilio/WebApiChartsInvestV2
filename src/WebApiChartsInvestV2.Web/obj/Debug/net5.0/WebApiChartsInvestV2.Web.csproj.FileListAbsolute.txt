@@ -173,3 +173,10 @@ C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Web\ob
 C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Web\obj\Debug\net5.0\Razor\Views\Home\IndexV2.cshtml.g.cs
 C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Web\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Web\obj\Debug\net5.0\Razor\Views\Account\LoginV1.cshtml.g.cs
+C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Web\obj\Debug\net5.0\Razor\Views\Administration\CreateRole.cshtml.g.cs
+C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Web\obj\Debug\net5.0\Razor\Views\Administration\ListRoles.cshtml.g.cs
+C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Web\obj\Debug\net5.0\Razor\Views\Administration\EditRole.cshtml.g.cs
+C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Web\obj\Debug\net5.0\Razor\Views\Administration\EditUsersInRole.cshtml.g.cs
+C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Web\obj\Debug\net5.0\Razor\Views\Account\AccessDenied.cshtml.g.cs
+C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Web\obj\Debug\net5.0\Razor\Views\Administration\ListUsers.cshtml.g.cs
+C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Web\obj\Debug\net5.0\Razor\Views\Administration\EditUser.cshtml.g.cs
