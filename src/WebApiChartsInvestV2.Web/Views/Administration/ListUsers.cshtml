@@ -2,59 +2,147 @@
 @{
     ViewBag.Title = "Todos os usuários";
 }
-<h2>Usuários</h2>
+
+<div class="subheader">
+    <h1 class="subheader-title">
+        <i class='subheader-icon fal fa-user'></i> Web Chart Invest <span class='fw-300'>Users</span>
+    </h1>
+    <div class="subheader-block d-lg-flex align-items-center border-faded border-right-0 border-top-0 border-bottom-0 ml-3 pl-3">
+        <div class="d-inline-flex flex-column justify-content-center mr-3">
+            <div class="position-absolute pos-top pos-right d-none d-sm-block"><span class="js-get-date"></span></div>
+        </div>
+        <span class="sparklines hidden-lg-down" sparkType="bar" sparkBarColor="#fe6bb0" sparkHeight="32px" sparkBarWidth="5px" values="1,4,3,6,5,3,9,6,5,9,7"></span>
+    </div>
+</div>
+
 @if (Model.Any())
 {
-    <a asp-action="Register" asp-controller="Account"
-       class="btn btn-primary mb-3" style="width:auto">
-        Novo Usuário
-    </a>
-    foreach (var user in Model)
+
+    <p>
+        <a asp-action="Register" asp-controller="Account" class="btn btn-success">Create New</a>
+    </p>
+
+    @if (Model.Count() > 0)
     {
-        <div class="card mb-3">
+        <table id="dt-export" class="table table-bordered table-hover table-striped w-100">
+            <thead class="bg-primary-600">
+                <tr>
+                    <th></th>
+                    <th>User Name</th>
+                    <th>Email</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>
+                            <a asp-controller="Administration" asp-action="Edituser" asp-route-id="@user.Id" class="btn btn-primary btn-icon" title="Edit"><i class="fal fa-edit"></i></a>
+                            <a href="javascript:void(0);" class="btn btn-danger btn-icon delete" id="@user.Id" title="Delete"><i class="fal fa-trash-alt"></i></a>
+                        </td>
+                        <td>@user.UserName</td>
+                        <td>@user.Email</td>
+                        <td>@user.FirstName</td>
+                        <td>@user.LastName</td>
+                        <td>@user.Image</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="card">
             <div class="card-header">
-                ID : @user.Id
+                Sem usuários registrados
             </div>
             <div class="card-body">
-                <h5 class="card-title">@user.UserName</h5>
-            </div>
-            <div class="card-footer">
-                <form method="post" asp-action="DeleteUser" asp-route-id="@user.Id">
-                    <a asp-controller="Administration" asp-action="Edituser"
-                       asp-route-id="@user.Id" class="btn btn-primary">Editar</a>
-                    <span id="confirmaDeleteSpan_@user.Id" style="display:none">
-                        <span>Deseja realmente deletar este usuário ?</span>
-                        <button type="submit" class="btn btn-danger">Sim</button>
-                        <a href="#" class="btn btn-primary"
-                           onclick="confirmaDelete('@user.Id', false)">Não</a>
-                    </span>
-                    <span id="deleteSpan_@user.Id">
-                        <a href="#" class="btn btn-danger"
-                           onclick="confirmaDelete('@user.Id', true)">Deletar</a>
-                    </span>
-                </form>
+                <h5 class="card-title">
+                    Use o botão abaixo para criar um usuário
+                </h5>
+                <a class="btn btn-primary" style="width:auto"
+                   asp-controller="Account" asp-action="Register">
+                    Criar um novo usuário
+                </a>
             </div>
         </div>
     }
 }
-else
-{
-    <div class="card">
-        <div class="card-header">
-            Sem usuários registrados
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">
-                Use o botão abaixo para criar um usuário
-            </h5>
-            <a class="btn btn-primary" style="width:auto"
-               asp-controller="Account" asp-action="Register">
-                Criar um novo usuário
-            </a>
-        </div>
-    </div>
-}
+
 
 @section Scripts {
     <script src="~/js/custom/CustomScript.js"></script>
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "debug": true,
+            "newestOnTop": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": true,
+            "onclick": null,
+            "showDuration": 300,
+            "hideDuration": 100,
+            "timeOut": 5000,
+            "extendedTimeOut": 1000,
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+
+        $(".delete").click(function () {
+            var id = $(this).attr("id");
+
+            //Sweet Alert V2
+            event.preventDefault();
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.value) {
+                    //Action is here
+                    $.ajax({
+                        type: 'post',
+                        dataType: 'json',
+                        cache: false,
+                        url: "/Administration/DeleteUserV1",
+                        data: {
+                            id: id
+                        },
+                        success: function (response, textStatus, jqXHR) {
+                            if (response.deleted == "true") {
+
+                                toastr["success"]("User deleted successfully.");
+
+                                //location.reload();
+                                $("#dt-export").change(location.reload());
+
+                                return true;
+                            }
+                            else {
+                                toastr["error"]("Error in deleted user.");
+                            }
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            toastr["info"]("Error in deleted user.");
+                            //alert('Error - ' + errorThrown);
+                        }
+                    });
+                } else {
+                    Swal.fire("Cancelled", "User is safe.", "error");
+                    return false;
+                }
+            })
+        });
+    </script>
+    
 }

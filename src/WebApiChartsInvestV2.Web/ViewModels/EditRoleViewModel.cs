@@ -12,7 +12,7 @@ namespace WebApiChartsInvestV2.Web.ViewModels
 
         public string Id { get; set; }
 
-        [Required(ErrorMessage = "O nome da role é obrigatório")]
+        [Required(ErrorMessage = "Role name is required")]
         public string RoleName { get; set; }
 
         public List<string> Users { get; set; }

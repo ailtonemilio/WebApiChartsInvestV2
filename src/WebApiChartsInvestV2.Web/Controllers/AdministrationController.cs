@@ -49,6 +49,9 @@ namespace WebApiChartsInvestV2.Web.Controllers
                 Id = user.Id,
                 Email = user.Email,
                 UserName = user.UserName,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Image = user.Image,
                 Claims = userClaims.Select(c => c.Value).ToList(),
                 Roles = userRoles
             };
@@ -69,6 +72,9 @@ namespace WebApiChartsInvestV2.Web.Controllers
             {
                 user.Email = model.Email;
                 user.UserName = model.UserName;
+                user.FirstName = model.FirstName;
+                user.LastName = model.LastName;
+                user.Image = model.Image;
 
                 var result = await userManager.UpdateAsync(user);
 
@@ -112,7 +118,38 @@ namespace WebApiChartsInvestV2.Web.Controllers
                 return View("ListUsers");
             }
         }
+        [HttpPost]
+        public async Task<IActionResult> DeleteUserV1(string id)
+        {
+            var user = await userManager.FindByIdAsync(id);
+            string deleted = "";
+            string msg = "";
 
+            if (user == null)
+            {
+                msg = $"Usuário com Id = {id} não foi encontrado";
+                deleted = "false";
+            }
+            else
+            {
+                var result = await userManager.DeleteAsync(user);
+
+                if (result.Succeeded)
+                {
+                    //return RedirectToAction("ListUsers");
+                    msg = "Usuário excluido com sucesso";
+                    deleted = "true";
+                }
+                else
+                {
+                    msg = "Usuário não pode ser excluido";
+                    deleted = "false";
+                }
+
+            }
+
+            return Json(new { success = true, deleted, msg });
+        }
 
         [HttpGet]
         public IActionResult ListRoles()
@@ -324,5 +361,57 @@ namespace WebApiChartsInvestV2.Web.Controllers
             }
             return RedirectToAction("EditRole", new { Id = roleId });
         }
+
+        
+
+        //[HttpGet]
+        //public IActionResult ChangePassword()
+        //{
+        //    return View();
+        //}
+        //[HttpGet]
+        //public async Task<IActionResult> ChangePassword1(string _userName)
+        //{
+        //    var user = await userManager.FindByNameAsync(_userName);
+
+        //    if (user == null)
+        //    {
+        //        ViewBag.ErrorMessage = $"User with UserName = {_userName} was not found";
+        //        return View("NotFound");
+        //    }
+
+        //    var model = new ChangePasswordViewModel
+        //    {
+        //        Id = user.Id,
+        //        UserName = user.UserName,
+        //        ConfirmPassword = "",
+        //        CurrentPassword = "",
+        //        NewPassword = "",
+        //    };
+        //    return View(model);
+        //}
+        //[HttpPost]
+        //public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)
+        //{
+        //    var user = await userManager.FindByNameAsync(model.UserName);
+
+        //    if (user == null)
+        //    {
+        //        ViewBag.ErrorMessage = $"User with UserName = {model.UserName} was not found";
+        //        return View("NotFound");
+        //    }
+        //    else
+        //    {
+        //        // Armazena os dados do usuário na tabela AspNetUsers
+        //        var result = await userManager.ChangePasswordAsync(user, model.CurrentPassword, model.NewPassword);
+
+        //        if (result.Succeeded)
+        //        {
+        //            return RedirectToAction("index", "home");
+        //        }
+        //    }
+
+        //    return View(model);
+        //}
     }
 }

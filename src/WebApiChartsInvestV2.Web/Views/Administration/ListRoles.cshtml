@@ -2,42 +2,74 @@
 @{
     ViewBag.Title = "Todas as Roles";
 }
-<h1>Roles</h1>
+<div class="subheader">
+    <h1 class="subheader-title">
+        <i class='subheader-icon fal fa-user-alt-slash'></i> Web Chart Invest <span class='fw-300'>Roles</span>
+    </h1>
+    <div class="subheader-block d-lg-flex align-items-center border-faded border-right-0 border-top-0 border-bottom-0 ml-3 pl-3">
+        <div class="d-inline-flex flex-column justify-content-center mr-3">
+            <div class="position-absolute pos-top pos-right d-none d-sm-block"><span class="js-get-date"></span></div>
+        </div>
+        <span class="sparklines hidden-lg-down" sparkType="bar" sparkBarColor="#fe6bb0" sparkHeight="32px" sparkBarWidth="5px" values="1,4,3,6,5,3,9,6,5,9,7"></span>
+    </div>
+</div>
+
 @if (Model.Any())
 {
-    <a class="btn btn-primary mb-3" style="width:auto" asp-action="CreateRole"
-       asp-controller="administration">Nova Role</a>
+    <p>
+        <a asp-action="CreateRole" asp-controller="administration" class="btn btn-success">Create New</a>
+    </p>
 
-    foreach (var role in Model)
-    {
-        <div class="card mb-3">
-            <div class="card-header">
-                ID : @role.Id
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">@role.Name</h5>
-            </div>
-            <div class="card-footer">
-                <form asp-action="DeleteRole" asp-route-id="@role.Id" method="post">
+    <table id="dt-export" class="table table-bordered table-hover table-striped w-100">
+        <thead class="bg-primary-600">
+            <tr>
+                <th style="width:10%"></th>
+                <th>Role</th>
+            </tr>    
+        </thead>
+        <tbody>
+            @foreach (var role in Model)
+            {
+                <tr>
+                    <td>
+                        <a asp-action="EditRole" asp-controler="Administration" asp-route-id="@role.Id" class="btn btn-primary btn-icon"><i class="fal fa-edit"></i></a>
+                        <a href="javascript:void(0);" class="btn btn-danger btn-icon delete" id="@role.Id" title="Delete"><i class="fal fa-trash-alt"></i></a>
+                    </td>
+                    <td>@role.Name</td>
+                </tr>
+                @*<div class="card mb-3">
+                    <div class="card-header">
+                        ID : @role.Id
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">@role.Name</h5>
+                    </div>
+                    <div class="card-footer">
+                        <form asp-action="DeleteRole" asp-route-id="@role.Id" method="post">
 
-                    <a asp-action="EditRole" asp-controler="Administration"
-                       asp-route-id="@role.Id" class="btn btn-primary">Editar</a>
+                            <a asp-action="EditRole" asp-controler="Administration"
+                                asp-route-id="@role.Id" class="btn btn-primary">Editar</a>
 
-                    <span id="confirmaDeleteSpan_@role.Id" style="display:none">
-                        <span>Deseja deletar esta role ?</span>
-                        <button type="submit" class="btn btn-danger">Sim</button>
-                        <a href="#" class="btn btn-primary"
-                           onclick="confirmaDelete('@role.Id', false)">Não</a>
-                    </span>
+                            <span id="confirmaDeleteSpan_@role.Id" style="display:none">
+                                <span>Deseja deletar esta role ?</span>
+                                <button type="submit" class="btn btn-danger">Sim</button>
+                                <a href="#" class="btn btn-primary"
+                                    onclick="confirmaDelete('@role.Id', false)">Não</a>
+                            </span>
 
-                    <span id="deleteSpan_@role.Id">
-                        <a href="#" class="btn btn-danger"
-                           onclick="confirmaDelete('@role.Id', true)">Deletar</a>
-                    </span>
-                </form>
-            </div>
-        </div>
-    }
+                            <span id="deleteSpan_@role.Id">
+                                <a href="#" class="btn btn-danger"
+                                    onclick="confirmaDelete('@role.Id', true)">Deletar</a>
+                            </span>
+                        </form>
+                    </div>
+                </div>*@
+            }
+        </tbody>
+    </table>
+
+
+    
 }
 else
 {
