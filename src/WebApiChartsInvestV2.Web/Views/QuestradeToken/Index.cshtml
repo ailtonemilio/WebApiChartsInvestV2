@@ -5,59 +5,70 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create" class="btn btn-success">Create New</a>
-</p>
-<table id="dt-export" class="table table-bordered table-hover table-striped w-100">
-    <thead class="bg-primary-600">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Token)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Validade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsValid)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+<div class="subheader">
+    <h1 class="subheader-title">
+        <i class='subheader-icon fal fa-chart-area'></i> Questrade <span class='fw-300'>Token</span>
+    </h1>
+    <div class="subheader-block d-lg-flex align-items-center border-faded border-right-0 border-top-0 border-bottom-0 ml-3 pl-3">
+        <div class="d-inline-flex flex-column justify-content-center mr-3">
+            <div class="position-absolute pos-top pos-right d-none d-sm-block"><span class="js-get-date"></span></div>
+        </div>
+        <span class="sparklines hidden-lg-down" sparkType="bar" sparkBarColor="#fe6bb0" sparkHeight="32px" sparkBarWidth="5px" values="1,4,3,6,5,3,9,6,5,9,7"></span>
+    </div>
+</div>
+
+    <p>
+        <a asp-action="Create" class="btn btn-success">Create New</a>
+    </p>
+    <table id="dt-export" class="table table-bordered table-hover table-striped w-100">
+        <thead class="bg-primary-600">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Token)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Validade)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IsValid)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.QuestradeTokenId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.QuestradeTokenId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.QuestradeTokenId">Delete</a>
-                </td>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Token)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Validade)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsValid)
+                </th>
             </tr>
-        }
-    </tbody>
-    <tfoot>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Token)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Validade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsValid)
-            </th>
-            <th></th>
-        </tr>
-    </tfoot>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.QuestradeTokenId" class="btn btn-primary btn-icon" title="Edit"><i class="fal fa-edit"></i></a>
+                        <a asp-action="Details" asp-route-id="@item.QuestradeTokenId" class="btn btn-info btn-icon" title="Details"><i class="fal fa-book"></i></a>
+                        <a asp-action="Delete" asp-route-id="@item.QuestradeTokenId" class="btn btn-danger btn-icon" title="Delete"><i class="fal fa-trash-alt"></i></a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Token)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Validade)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsValid)
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Token)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Validade)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsValid)
+                </th>
+                <th></th>
+            </tr>
+        </tfoot>
+    </table>

@@ -1,0 +1,71 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<WebApiChartsInvestV2.Model.Entities.ApplicationUser> SignInManager
+
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor
+
+<div>
+    <a href="#" data-toggle="dropdown" title="@HttpContextAccessor.HttpContext.Session.GetString("Email")" class="header-icon d-flex align-items-center justify-content-center ml-2">
+        <img src="~/img/users/@HttpContextAccessor.HttpContext.Session.GetString("UserImage")" class="profile-image rounded-circle" alt="@HttpContextAccessor.HttpContext.Session.GetString("Name")">
+        <!-- you can also add username next to the avatar with the codes below:
+        <span class="ml-1 mr-1 text-truncate text-truncate-header hidden-xs-down">Me</span>
+        <i class="ni ni-chevron-down hidden-xs-down"></i> -->
+    </a>
+    <div class="dropdown-menu dropdown-menu-animated dropdown-lg">
+        <div class="dropdown-header bg-trans-gradient d-flex flex-row py-4 rounded-top">
+            <div class="d-flex flex-row align-items-center mt-1 mb-1 color-white">
+                <span class="mr-2">
+                    <img src="~/img/users/@HttpContextAccessor.HttpContext.Session.GetString("UserImage")" class="rounded-circle profile-image" alt="@HttpContextAccessor.HttpContext.Session.GetString("Name")">
+                </span>
+                <div class="info-card-text">
+                    <div class="fs-lg text-truncate text-truncate-lg">@HttpContextAccessor.HttpContext.Session.GetString("Name")</div>
+                    <span class="text-truncate text-truncate-md opacity-80"></span>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown-divider m-0"></div>
+        <a href="#" class="dropdown-item" data-toggle="modal" data-target=".js-modal-settings">
+            <span data-i18n="drpdwn.settings">Settings</span>
+        </a>
+        <a href="#" class="dropdown-item" data-action="app-fullscreen">
+            <span data-i18n="drpdwn.fullscreen">Fullscreen</span>
+            <i class="float-right text-muted fw-n">F11</i>
+        </a>
+        <a href="#" class="dropdown-item" data-action="app-print">
+            <span data-i18n="drpdwn.print">Print</span>
+            <i class="float-right text-muted fw-n">Ctrl + P</i>
+        </a>
+
+        @if (SignInManager.IsSignedIn(User))
+        {
+
+            @if (User.IsInRole("Admin"))
+            {
+                <div class="dropdown-divider m-0"></div>
+                <div class="dropdown-multilevel dropdown-multilevel-left">
+                    <div class="dropdown-item">
+                        Users Administrator
+                    </div>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" asp-controller="Administration" asp-action="ListUsers">Users</a>
+                        <a class="dropdown-item" asp-controller="Administration" asp-action="ListRoles">Roles</a>
+                    </div>
+                </div>
+            }
+
+            <div class="dropdown-divider m-0"></div>
+            @*<a class="dropdown-item" asp-controller="Administration" asp-action="ChangePassword" asp-route-id="@User.Identity.Name">Change Password</a>
+            <a class="dropdown-item" href="\Administration\ChangePassword\@User.Identity.Name">Change Password - @User.Identity.Name</a>*@
+            <a class="dropdown-item" asp-controller="Account" asp-action="ChangePassword">Change Password</a>
+            <div class="dropdown-divider m-0"></div>
+            <form method="post" asp-controller="account" asp-action="logout">
+                <button type="submit" style="width:auto" class="dropdown-item fw-500 pt-3 pb-3">
+                    <span type="submit" data-i18n="drpdwn.page-logout">Logout</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="float-right fw-n">@User.Identity.Name</span>
+                </button>
+            </form>
+        }
+
+    </div>
+</div>

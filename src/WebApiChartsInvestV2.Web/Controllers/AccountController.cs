@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 
 namespace WebApiChartsInvestV2.Web.Controllers
 {
@@ -37,7 +38,7 @@ namespace WebApiChartsInvestV2.Web.Controllers
                 // Copia os dados do RegisterViewModel para o IdentityUser
                 var user = new ApplicationUser
                 {
-                    UserName = model.Email,
+                    UserName = model.UserName,
                     Email = model.Email
                 };
 
@@ -91,11 +92,21 @@ namespace WebApiChartsInvestV2.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await signInManager.PasswordSignInAsync(
-                    model.Email, model.Password, model.RememberMe, false);
+                var result = await signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, false);
 
                 if (result.Succeeded)
                 {
+                    var user = await userManager.FindByNameAsync(model.UserName);
+
+                    HttpContext.Session.SetString("Name", user.FirstName + " " + user.LastName);
+                    HttpContext.Session.SetString("Email", user.Email);
+
+                    if (!String.IsNullOrEmpty(user.Image))
+                        HttpContext.Session.SetString("UserImage", user.Image);
+                    else
+                        HttpContext.Session.SetString("UserImage", "usericon.png");
+                        
+
                     return RedirectToAction("index", "home");
                 }
 
@@ -121,6 +132,61 @@ namespace WebApiChartsInvestV2.Web.Controllers
             }
         }
 
+        [AcceptVerbs("Get", "Post")]
+        [AllowAnonymous]
+        public async Task<IActionResult> IsUserNameInUse(string UserName)
+        {
+            var user = await userManager.FindByNameAsync(UserName);
+
+            if (user == null)
+            {
+                return Json(true);
+            }
+            else
+            {
+                return Json($"The UserName {UserName} is already in use.");
+            }
+        }
+        [HttpGet]
+        public IActionResult ChangePassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await userManager.GetUserAsync(User);
+                if (user == null)
+                {
+                    return RedirectToAction("Login");
+                }
+
+                // ChangePasswordAsync changes the user password
+                var result = await userManager.ChangePasswordAsync(user,
+                    model.CurrentPassword, model.NewPassword);
+
+                // The new password did not meet the complexity rules or
+                // the current password is incorrect. Add these errors to
+                // the ModelState and rerender ChangePassword view
+                if (!result.Succeeded)
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
+                    return View();
+                }
+
+                // Upon successfully changing the password refresh sign-in cookie
+                await signInManager.RefreshSignInAsync(user);
+                return View("ChangePasswordConfirmation");
+            }
+
+            return View(model);
+        }
         [HttpGet]
         [AllowAnonymous]
         public IActionResult AccessDenied()
