@@ -25,12 +25,9 @@
         <table id="dt-basic" class="table table-bordered table-hover table-striped w-100">
             <thead class="bg-primary-600">
                 <tr>
-                    <th></th>
+                    <th style="width:15%;"></th>
                     <th>
                         @Html.DisplayNameFor(model => model.PortfolioName)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.UserId)
                     </th>
                 </tr>
             </thead>
@@ -40,14 +37,10 @@
                     <tr>
                         <td>
                             <a asp-action="Edit" asp-route-id="@item.PortfolioId" class="btn btn-primary btn-icon" title="Edit"><i class="fal fa-edit"></i></a>
-                            <a asp-action="Details" asp-route-id="@item.PortfolioId" class="btn btn-info btn-icon" title="Details"><i class="fal fa-address-card"></i></a>
                             <a href="javascript:void(0);" class="btn btn-danger btn-icon delete" id="@item.PortfolioId" title="Delete"><i class="fal fa-trash-alt"></i></a>
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.PortfolioName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.UserId)
                         </td>
                     </tr>
                 }
@@ -59,3 +52,76 @@
     </div>
 </div>
 
+@section Scripts {
+    <script src="~/js/custom/CustomScript.js"></script>
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "debug": true,
+            "newestOnTop": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": true,
+            "onclick": null,
+            "showDuration": 300,
+            "hideDuration": 100,
+            "timeOut": 5000,
+            "extendedTimeOut": 1000,
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+
+        $(".delete").click(function () {
+            var id = $(this).attr("id");
+
+            //Sweet Alert V2
+            event.preventDefault();
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.value) {
+                    //Action is here
+                    $.ajax({
+                        type: 'post',
+                        dataType: 'json',
+                        cache: false,
+                        url: "/Portfolio/DeletePortfolio",
+                        data: {
+                            id: id
+                        },
+                        success: function (response, textStatus, jqXHR) {
+                            if (response.deleted == "true") {
+
+                                toastr["success"]("Portfolio deleted successfully.");
+
+                                //location.reload();
+                                $("#dt-basic").change(location.reload());
+
+                                return true;
+                            }
+                            else {
+                                toastr["error"]("Error in deleted Portfolio.");
+                            }
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            toastr["info"]("Error in deleted Portfolio.");
+                            //alert('Error - ' + errorThrown);
+                        }
+                    });
+                } else {
+                    Swal.fire("Cancelled", "Portfolio is safe.", "error");
+                    return false;
+                }
+            })
+        });
+    </script>
+
+}
