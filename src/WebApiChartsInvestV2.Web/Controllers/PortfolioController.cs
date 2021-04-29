@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -14,9 +15,14 @@ namespace WebApiChartsInvestV2.Web.Controllers
     {
         private readonly ContextBase _context;
 
-        public PortfolioController(ContextBase context)
+        private readonly UserManager<ApplicationUser> userManager;
+        private readonly SignInManager<ApplicationUser> signInManager;
+
+        public PortfolioController(ContextBase context, UserManager<ApplicationUser> userManager,SignInManager<ApplicationUser> signInManager)
         {
             _context = context;
+            this.userManager = userManager;
+            this.signInManager = signInManager;
         }
 
         // GET: Portfolio
@@ -46,15 +52,6 @@ namespace WebApiChartsInvestV2.Web.Controllers
         // GET: Portfolio/Create
         public IActionResult Create()
         {
-            List<ApplicationUser> UserList = new List<ApplicationUser>();
-
-            UserList = (from p in _context.Users
-                        select p).ToList();
-
-            UserList.Insert(0, new ApplicationUser { Id = "", FirstName = "Select User" });
-
-            ViewBag.listofUsers = UserList;
-
             return View();
         }
 
@@ -63,14 +60,12 @@ namespace WebApiChartsInvestV2.Web.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PortfolioId,PortfolioName,UserId")] Portfolio portfolio)
+        public async Task<IActionResult> Create([Bind("PortfolioId,PortfolioName")] Portfolio portfolio)
         {
             if (ModelState.IsValid)
             {
-                if (String.IsNullOrEmpty(portfolio.UserId))
-                {
-                    ModelState.AddModelError("", "Select User");
-                }
+                ApplicationUser applicationUser = await userManager.GetUserAsync(User);
+                portfolio.UserId = applicationUser.Id;
 
                 _context.Add(portfolio);
                 await _context.SaveChangesAsync();
@@ -93,15 +88,6 @@ namespace WebApiChartsInvestV2.Web.Controllers
                 return NotFound();
             }
 
-            List<ApplicationUser> UserList = new List<ApplicationUser>();
-
-            UserList = (from p in _context.Users
-                        select p).ToList();
-
-            UserList.Insert(0, new ApplicationUser { Id = "0", FirstName = "Select User" });
-
-            ViewBag.listofUsers = UserList;
-
             return View(portfolio);
         }
 
@@ -121,6 +107,12 @@ namespace WebApiChartsInvestV2.Web.Controllers
             {
                 try
                 {
+                    if (String.IsNullOrEmpty(portfolio.UserId))
+                    {
+                        ApplicationUser applicationUser = await userManager.GetUserAsync(User);
+                        portfolio.UserId = applicationUser.Id;
+                    }
+
                     _context.Update(portfolio);
                     await _context.SaveChangesAsync();
                 }
@@ -138,6 +130,39 @@ namespace WebApiChartsInvestV2.Web.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(portfolio);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeletePortfolio(string id)
+        {
+            var port = await _context.Portfolio.FindAsync(Convert.ToInt32(id));
+
+            string deleted = "";
+            string msg = "";
+
+            if (port == null)
+            {
+                msg = $"Portfolio with Id = {id} was not found";
+                deleted = "false";
+            }
+            else
+            {
+                try
+                {
+                    _context.Portfolio.Remove(port);
+                    _context.SaveChanges();
+                    msg = "Portfolio successfully deleted";
+                    deleted = "true";
+                }
+                catch (Exception ex)
+                {
+                    string a = ex.ToString();
+                    msg = "User cannot be deleted";
+                    deleted = "false";
+                }
+            }
+
+            return Json(new { success = true, deleted, msg });
         }
 
         // GET: Portfolio/Delete/5

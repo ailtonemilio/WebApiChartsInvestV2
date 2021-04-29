@@ -467,7 +467,5 @@ C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Web\ob
 C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Web\obj\Debug\net5.0\Razor\Views\Account\ChangePassword.cshtml.g.cs
 C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Web\obj\Debug\net5.0\Razor\Views\Account\ChangePasswordConfirmation.cshtml.g.cs
 C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Web\obj\Debug\net5.0\Razor\Views\Portfolio\Create.cshtml.g.cs
-C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Web\obj\Debug\net5.0\Razor\Views\Portfolio\Delete.cshtml.g.cs
-C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Web\obj\Debug\net5.0\Razor\Views\Portfolio\Details.cshtml.g.cs
 C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Web\obj\Debug\net5.0\Razor\Views\Portfolio\Edit.cshtml.g.cs
 C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Web\obj\Debug\net5.0\Razor\Views\Portfolio\Index.cshtml.g.cs
