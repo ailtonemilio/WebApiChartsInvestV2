@@ -25,7 +25,7 @@
             <tr>
                 <th style="width:10%"></th>
                 <th>Role</th>
-            </tr>    
+            </tr>
         </thead>
         <tbody>
             @foreach (var role in Model)
@@ -38,38 +38,38 @@
                     <td>@role.Name</td>
                 </tr>
                 @*<div class="card mb-3">
-                    <div class="card-header">
-                        ID : @role.Id
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">@role.Name</h5>
-                    </div>
-                    <div class="card-footer">
-                        <form asp-action="DeleteRole" asp-route-id="@role.Id" method="post">
+                        <div class="card-header">
+                            ID : @role.Id
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">@role.Name</h5>
+                        </div>
+                        <div class="card-footer">
+                            <form asp-action="DeleteRole" asp-route-id="@role.Id" method="post">
 
-                            <a asp-action="EditRole" asp-controler="Administration"
-                                asp-route-id="@role.Id" class="btn btn-primary">Editar</a>
+                                <a asp-action="EditRole" asp-controler="Administration"
+                                    asp-route-id="@role.Id" class="btn btn-primary">Editar</a>
 
-                            <span id="confirmaDeleteSpan_@role.Id" style="display:none">
-                                <span>Deseja deletar esta role ?</span>
-                                <button type="submit" class="btn btn-danger">Sim</button>
-                                <a href="#" class="btn btn-primary"
-                                    onclick="confirmaDelete('@role.Id', false)">Não</a>
-                            </span>
+                                <span id="confirmaDeleteSpan_@role.Id" style="display:none">
+                                    <span>Deseja deletar esta role ?</span>
+                                    <button type="submit" class="btn btn-danger">Sim</button>
+                                    <a href="#" class="btn btn-primary"
+                                        onclick="confirmaDelete('@role.Id', false)">Não</a>
+                                </span>
 
-                            <span id="deleteSpan_@role.Id">
-                                <a href="#" class="btn btn-danger"
-                                    onclick="confirmaDelete('@role.Id', true)">Deletar</a>
-                            </span>
-                        </form>
-                    </div>
-                </div>*@
+                                <span id="deleteSpan_@role.Id">
+                                    <a href="#" class="btn btn-danger"
+                                        onclick="confirmaDelete('@role.Id', true)">Deletar</a>
+                                </span>
+                            </form>
+                        </div>
+                    </div>*@
             }
         </tbody>
     </table>
 
 
-    
+
 }
 else
 {
@@ -88,6 +88,78 @@ else
         </div>
     </div>
 }
+
 @section Scripts {
     <script src="~/js/custom/CustomScript.js"></script>
+
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "debug": true,
+            "newestOnTop": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": true,
+            "onclick": null,
+            "showDuration": 300,
+            "hideDuration": 100,
+            "timeOut": 5000,
+            "extendedTimeOut": 1000,
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+
+        $(".delete").click(function () {
+            var id = $(this).attr("id");
+
+            //Sweet Alert V2
+            event.preventDefault();
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.value) {
+                    //Action is here
+                    $.ajax({
+                        type: 'post',
+                        dataType: 'json',
+                        cache: false,
+                        url: "/Administration/DeleteRoleV1",
+                        data: {
+                            id: id
+                        },
+                        success: function (response, textStatus, jqXHR) {
+                            if (response.deleted == "true") {
+
+                                toastr["success"]("Role deleted successfully.");
+
+                                //location.reload();
+                                $("#dt-export").change(location.reload());
+
+                                return true;
+                            }
+                            else {
+                                toastr["error"]("Error in deleted Role.");
+                            }
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            toastr["info"]("Error in deleted Role.");
+                            //alert('Error - ' + errorThrown);
+                        }
+                    });
+                } else {
+                    Swal.fire("Cancelled", "Role is safe.", "error");
+                    return false;
+                }
+            })
+        });
+    </script>
+
 }

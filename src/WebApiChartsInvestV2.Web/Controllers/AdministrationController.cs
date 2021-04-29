@@ -180,7 +180,7 @@ namespace WebApiChartsInvestV2.Web.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("index", "home");
+                    return RedirectToAction("ListRoles", "Administration");
                 }
 
                 foreach (IdentityError error in result.Errors)
@@ -284,6 +284,52 @@ namespace WebApiChartsInvestV2.Web.Controllers
                 return View("ListRoles");
             }
         }
+        
+        [HttpPost]
+        public async Task<IActionResult> DeleteRoleV1(string id)
+        {
+            string deleted = "";
+            string msg = "";
+            
+            try
+            {
+                var role = await roleManager.FindByIdAsync(id);
+
+
+                if (role == null)
+                {
+                    msg = $"The Role with Id = {id} was not found";
+                    deleted = "false";
+                }
+                else
+                {
+                    var result = await roleManager.DeleteAsync(role);
+
+                    if (result.Succeeded)
+                    {
+                        //return RedirectToAction("ListUsers");
+                        msg = "Role successfully deleted";
+                        deleted = "true";
+                    }
+                    else
+                    {
+                        msg = "Role cannot be deleted";
+                        deleted = "false";
+                    }
+
+                }
+
+                return Json(new { success = true, deleted, msg });
+            }
+            catch (System.Exception ex)
+            {
+                string msgerror = ex.ToString();
+                deleted = "false";
+                    msg = "Error deleting the Role!";
+                return Json(new { success = false, deleted, msg });
+            }
+            
+        }
 
         [HttpGet]
         public async Task<IActionResult> EditUsersInRole(string roleId)
@@ -361,57 +407,5 @@ namespace WebApiChartsInvestV2.Web.Controllers
             }
             return RedirectToAction("EditRole", new { Id = roleId });
         }
-
-        
-
-        //[HttpGet]
-        //public IActionResult ChangePassword()
-        //{
-        //    return View();
-        //}
-        //[HttpGet]
-        //public async Task<IActionResult> ChangePassword1(string _userName)
-        //{
-        //    var user = await userManager.FindByNameAsync(_userName);
-
-        //    if (user == null)
-        //    {
-        //        ViewBag.ErrorMessage = $"User with UserName = {_userName} was not found";
-        //        return View("NotFound");
-        //    }
-
-        //    var model = new ChangePasswordViewModel
-        //    {
-        //        Id = user.Id,
-        //        UserName = user.UserName,
-        //        ConfirmPassword = "",
-        //        CurrentPassword = "",
-        //        NewPassword = "",
-        //    };
-        //    return View(model);
-        //}
-        //[HttpPost]
-        //public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)
-        //{
-        //    var user = await userManager.FindByNameAsync(model.UserName);
-
-        //    if (user == null)
-        //    {
-        //        ViewBag.ErrorMessage = $"User with UserName = {model.UserName} was not found";
-        //        return View("NotFound");
-        //    }
-        //    else
-        //    {
-        //        // Armazena os dados do usuário na tabela AspNetUsers
-        //        var result = await userManager.ChangePasswordAsync(user, model.CurrentPassword, model.NewPassword);
-
-        //        if (result.Succeeded)
-        //        {
-        //            return RedirectToAction("index", "home");
-        //        }
-        //    }
-
-        //    return View(model);
-        //}
     }
 }

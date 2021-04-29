@@ -2,28 +2,55 @@
 @{
     var roleId = ViewBag.roleId;
 }
+<div class="subheader">
+    <h1 class="subheader-title">
+        <i class='subheader-icon fal fa-user-alt-slash'></i> Web Chart Invest <span class='fw-300'>Add or Remove Users From This Role</span>
+    </h1>
+    <div class="subheader-block d-lg-flex align-items-center border-faded border-right-0 border-top-0 border-bottom-0 ml-3 pl-3">
+        <div class="d-inline-flex flex-column justify-content-center mr-3">
+            <div class="position-absolute pos-top pos-right d-none d-sm-block"><span class="js-get-date"></span></div>
+        </div>
+        <span class="sparklines hidden-lg-down" sparkType="bar" sparkBarColor="#fe6bb0" sparkHeight="32px" sparkBarWidth="5px" values="1,4,3,6,5,3,9,6,5,9,7"></span>
+    </div>
+</div>
+
 <form method="post">
     <div class="card">
-        <div class="card-header">
+        @*<div class="card-header bg-primary-700 bg-success-gradient">
             <h2>Incluir ou remover usuários desta role</h2>
-        </div>
+        </div>*@
         <div class="card-body">
-            @for (int i = 0; i < Model.Count; i++)
-            {
-                <div class="form-check m-1">
-                    <input type="hidden" asp-for="@Model[i].UserId" />
-                    <input type="hidden" asp-for="@Model[i].UserName" />
-                    <input asp-for="@Model[i].IsSelected" class="form-check-input" />
-                    <label class="form-check-label" asp-for="@Model[i].IsSelected">
-                        @Model[i].UserName
-                    </label>
-                </div>
-            }
+           <table id="dt-basic" class="table-sm table-bordered table-hover table-striped w-100">
+               <thead class="bg-primary-600">
+                   <tr>
+                       <th>
+                           User
+                       </th>
+                   </tr>    
+               </thead>
+                   <tbody>
+                       @for (int i = 0; i < Model.Count; i++)
+                       {
+                           <tr>
+                               <td>
+                                   <div class="form-check m-1">
+                                       <input type="hidden" asp-for="@Model[i].UserId" />
+                                       <input type="hidden" asp-for="@Model[i].UserName" />
+                                       <input asp-for="@Model[i].IsSelected" class="form-check-input" />
+                                       <label class="form-check-label" asp-for="@Model[i].IsSelected">
+                                           @Model[i].UserName
+                                       </label>
+                                   </div>
+                               </td>
+                           </tr>
+                       }
+                   </tbody>
+           </table>
         </div>
         <div class="card-footer">
-            <input type="submit" value="Atualizar" class="btn btn-primary" style="width:auto" />
-            <a asp-action="EditRole" asp-route-id="@roleId"
-               class="btn btn-primary" style="width:auto">Cancelar</a>
+            <button type="submit" value="Atualizar" class="btn btn-primary">Update</button>
+            @*<input type="submit" value="Atualizar" class="btn btn-primary" />*@
+            <a asp-action="EditRole" asp-route-id="@roleId" class="btn btn-danger">Cancel</a>
         </div>
     </div>
 </form>
