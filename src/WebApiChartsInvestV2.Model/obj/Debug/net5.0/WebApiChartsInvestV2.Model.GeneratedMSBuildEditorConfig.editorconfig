@@ -6,3 +6,5 @@ build_property.ProjectTypeGuids =
 build_property.PublishSingleFile = 
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
+build_property.RootNamespace = WebApiChartsInvestV2.Model
+build_property.ProjectDir = C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Model\

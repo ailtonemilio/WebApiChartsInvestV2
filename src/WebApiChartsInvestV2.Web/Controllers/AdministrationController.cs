@@ -344,6 +344,7 @@ namespace WebApiChartsInvestV2.Web.Controllers
                 ViewBag.ErrorMessage = $"Role com Id = {roleId} não foi encontrada";
                 return View("NotFound");
             }
+            ViewBag.RoleName = role;
             var model = new List<UserRoleViewModel>();
 
             var listaUsuarios = userManager.Users.ToList();

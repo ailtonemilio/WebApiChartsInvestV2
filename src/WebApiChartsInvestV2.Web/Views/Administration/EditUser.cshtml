@@ -18,7 +18,6 @@
 
 <form method="post" class="needs-validation" novalidate>
     <div class="row">
-        <div class="col-md-4"></div>
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header bg-primary-700 bg-success-gradient"><h3>Edit User</h3></div>
@@ -75,80 +74,78 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4"></div>
-    </div>
-    <hr />
-
-    <div class="card">
-        <div class="card-body">
-            @if (Model.Roles.Any())
-            {
-                <table class="table-sm table-bordered table-hover table-striped w-100">
-                    <thead class="bg-primary-600">
-                        <tr>
-                            <th>Roles</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        @foreach (var role in Model.Roles)
-                        {
-                            <tr>
-                                <td>@role</td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-
-
-            }
-            else
-            {
-                <h5 class="card-title">Sem roles</h5>
-            }
-        </div>
-        <div class="card-footer">
-            <a href="#" style="width:auto" class="btn btn-primary">
-                Manage Roles
-            </a>
-        </div>
-    </div>
-    <hr />
-
-    <div class="card mt-3">
-
-        <div class="card-body">
-            <table class="table-sm table-bordered table-hover table-striped w-100">
-                <thead class="bg-primary-600">
-                    <tr>
-                        <th>Claims</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @if (Model.Claims.Any())
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header bg-primary-700 bg-success-gradient"><h3>User's Roles</h3></div>
+                <div class="card-body">
+                    @if (Model.Roles.Any())
                     {
-                        foreach (var claim in Model.Claims)
-                        {
-                            <tr>
-                                <td>@claim</td>
-                            </tr>
-                        }
+                        <table class="table-sm table-bordered table-hover table-striped w-100">
+                            <thead class="bg-primary-600">
+                                <tr>
+                                    <th>Roles</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (var role in Model.Roles)
+                                {
+                                    <tr>
+                                        <td>@role</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
                     }
                     else
                     {
-                        <tr>
-                            <td>No Claims</td>
-                        </tr>
+                        <h5 class="card-title">Sem roles</h5>
                     }
-                </tbody>
-            </table>
-
+                </div>
+                <div class="card-footer">
+                    <a href="#" style="width:auto" class="btn btn-primary">
+                        Manage Roles
+                    </a>
+                </div>
+            </div>
         </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header bg-primary-700 bg-success-gradient"><h3>User's Claims</h3></div>
+                <div class="card-body">
+                    <table class="table-sm table-bordered table-hover table-striped w-100">
+                        <thead class="bg-primary-600">
+                            <tr>
+                                <th>Claims</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Claims.Any())
+                            {
+                                foreach (var claim in Model.Claims)
+                                {
+                                    <tr>
+                                        <td>@claim</td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td>No Claims</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
 
-        <div class="card-footer">
-            <a href="#" style="width:auto" class="btn btn-primary">
-                Manage Claims
-            </a>
+                </div>
+
+                <div class="card-footer">
+                    <a href="#" style="width:auto" class="btn btn-primary">
+                        Manage Claims
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </form>

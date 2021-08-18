@@ -43,6 +43,12 @@
         -->
         <ul id="js-nav-menu" class="nav-menu">
             <li class="active">
+                <a asp-controller="Dashboard" asp-action="Index" title="Blank Project" data-filter-tags="blank page">
+                    <i class="fal fa-chart-pie-alt"></i>
+                    <span class="nav-link-text" data-i18n="nav.blankpage">Dashboard</span>
+                </a>
+            </li>
+            <li class="active">
                 <a asp-controller="Portfolio" asp-action="Index" title="Blank Project" data-filter-tags="blank page">
                     <i class="fal fa-chart-pie-alt"></i>
                     <span class="nav-link-text" data-i18n="nav.blankpage">Portfolio</span>
@@ -70,9 +76,9 @@
                             <span class="nav-link-text" data-i18n="nav.blankpage">Questrade Token</span>
                         </a>
                         @*<a href="\QuestradeToken" title="Blank Project" data-filter-tags="blank page">
-                                <i class="fal fa-barcode-read"></i>
-                                <span class="nav-link-text" data-i18n="nav.blankpage">Questrade Token</span>
-                            </a>*@
+                        <i class="fal fa-barcode-read"></i>
+                        <span class="nav-link-text" data-i18n="nav.blankpage">Questrade Token</span>
+                    </a>*@
                     </li>
                 </ul>
             </li>
