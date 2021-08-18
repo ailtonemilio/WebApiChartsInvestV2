@@ -18,7 +18,7 @@
 </div>
 
 <p>
-    <a asp-action="Create" class="btn btn-success">Create New</a>
+    <a asp-action="Create" class="btn btn-success bg-success-100 bg-success-gradient back">Create New</a>
 </p>
 <div class="card">
     <div class="card-body">
@@ -36,8 +36,8 @@
                 {
                     <tr>
                         <td>
-                            <a asp-action="Edit" asp-route-id="@item.PortfolioId" class="btn btn-primary btn-icon" title="Edit"><i class="fal fa-edit"></i></a>
-                            <a href="javascript:void(0);" class="btn btn-danger btn-icon delete" id="@item.PortfolioId" title="Delete"><i class="fal fa-trash-alt"></i></a>
+                            <a asp-action="Edit" asp-route-id="@item.PortfolioId" class="btn btn-primary bg-primary-100 bg-primary-gradient back btn-icon" title="Edit"><i class="fal fa-edit"></i></a>
+                            <a href="javascript:void(0);" class="btn btn-danger bg-danger-100 bg-danger-gradient back btn-icon delete" id="@item.PortfolioId" title="Delete"><i class="fal fa-trash-alt"></i></a>
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.PortfolioName)

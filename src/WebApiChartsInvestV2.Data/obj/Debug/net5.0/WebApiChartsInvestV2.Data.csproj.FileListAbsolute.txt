@@ -6,7 +6,6 @@ C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Data\b
 C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Data\bin\Debug\net5.0\WebApiChartsInvestV2.Data.pdb
 C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Data\bin\Debug\net5.0\WebApiChartsInvestV2.Model.dll
 C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Data\bin\Debug\net5.0\WebApiChartsInvestV2.Model.pdb
-C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Data\obj\Debug\net5.0\WebApiChartsInvestV2.Data.csprojAssemblyReference.cache
 C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Data\obj\Debug\net5.0\WebApiChartsInvestV2.Data.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Data\obj\Debug\net5.0\WebApiChartsInvestV2.Data.AssemblyInfoInputs.cache
 C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Data\obj\Debug\net5.0\WebApiChartsInvestV2.Data.AssemblyInfo.cs
@@ -16,3 +15,4 @@ C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Data\o
 C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Data\obj\Debug\net5.0\ref\WebApiChartsInvestV2.Data.dll
 C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Data\obj\Debug\net5.0\WebApiChartsInvestV2.Data.pdb
 C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Data\obj\Debug\net5.0\WebApiChartsInvestV2.Data.genruntimeconfig.cache
+C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.Data\obj\Debug\net5.0\WebApiChartsInvestV2.Data.csproj.AssemblyReference.cache

@@ -16,8 +16,7 @@
 
 <form method="post" class="needs-validation" novalidate>
     <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
+        <div class="col-md-5">
             <div class="card">
                 <div class="card-header bg-primary-700 bg-success-gradient">
                     <h3>Role</h3>
@@ -44,44 +43,46 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4"></div>
+        <div class="col-md-7">
+            <div class="card">
+                <div class="card-header bg-primary-700 bg-success-gradient">
+                    <h3>Users of this role</h3>
+                </div>
+                <div class="card-body">
+                    @if (Model.Users.Any())
+                    {
+                        <table id="dt-export" class="table table-bordered table-hover table-striped w-100">
+                            <thead>
+                                <tr class="bg-primary-600">
+                                    <th>Users</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var user in Model.Users)
+                                {
+                                    <tr>
+                                        <td>@user</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    }
+                    else
+                    {
+                        <h5 class="card-title">Sem usuários</h5>
+                    }
+                </div>
+                <div class="card-footer">
+                    <a asp-controller="Administration" asp-action="EditUsersInRole" asp-route-roleId="@Model.Id" class="btn btn-success">
+                        Add / Remove User from Role
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
     <hr />
-    <div class="card">
-        <div class="card-header bg-primary-700 bg-success-gradient">
-            <h3>Users of this role</h3>
-        </div>
-        <div class="card-body">
-            @if (Model.Users.Any())
-            {
-                <table id="dt-export" class="table table-bordered table-hover table-striped w-100">
-                    <thead>
-                        <tr class="bg-primary-600">
-                            <th>Users</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var user in Model.Users)
-                        {
-                            <tr>
-                                <td>@user</td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-
-            }
-            else
-            {
-                <h5 class="card-title">Sem usuários</h5>
-            }
-        </div>
-        <div class="card-footer">
-            <a asp-controller="Administration" asp-action="EditUsersInRole" asp-route-roleId="@Model.Id" class="btn btn-success">
-                Add / Remove User from Role
-            </a>
-        </div>
-    </div>
+    
 </form>
 
 @section Scripts {
