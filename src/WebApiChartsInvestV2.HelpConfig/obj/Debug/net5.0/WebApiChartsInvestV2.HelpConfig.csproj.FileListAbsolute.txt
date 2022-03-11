@@ -10,3 +10,15 @@ C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.HelpCo
 C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.HelpConfig\obj\Debug\net5.0\WebApiChartsInvestV2.HelpConfig.dll
 C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.HelpConfig\obj\Debug\net5.0\ref\WebApiChartsInvestV2.HelpConfig.dll
 C:\Users\ailto\source\repos\WebApiChartsInvestV2\src\WebApiChartsInvestV2.HelpConfig\obj\Debug\net5.0\WebApiChartsInvestV2.HelpConfig.pdb
+C:\Projects\GitHub\WebApiChartsInvestV2\src\WebApiChartsInvestV2.HelpConfig\bin\Debug\net5.0\WebApiChartsInvestV2.HelpConfig.deps.json
+C:\Projects\GitHub\WebApiChartsInvestV2\src\WebApiChartsInvestV2.HelpConfig\bin\Debug\net5.0\WebApiChartsInvestV2.HelpConfig.dll
+C:\Projects\GitHub\WebApiChartsInvestV2\src\WebApiChartsInvestV2.HelpConfig\bin\Debug\net5.0\WebApiChartsInvestV2.HelpConfig.pdb
+C:\Projects\GitHub\WebApiChartsInvestV2\src\WebApiChartsInvestV2.HelpConfig\obj\Debug\net5.0\WebApiChartsInvestV2.HelpConfig.csproj.AssemblyReference.cache
+C:\Projects\GitHub\WebApiChartsInvestV2\src\WebApiChartsInvestV2.HelpConfig\obj\Debug\net5.0\WebApiChartsInvestV2.HelpConfig.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\GitHub\WebApiChartsInvestV2\src\WebApiChartsInvestV2.HelpConfig\obj\Debug\net5.0\WebApiChartsInvestV2.HelpConfig.AssemblyInfoInputs.cache
+C:\Projects\GitHub\WebApiChartsInvestV2\src\WebApiChartsInvestV2.HelpConfig\obj\Debug\net5.0\WebApiChartsInvestV2.HelpConfig.AssemblyInfo.cs
+C:\Projects\GitHub\WebApiChartsInvestV2\src\WebApiChartsInvestV2.HelpConfig\obj\Debug\net5.0\WebApiChartsInvestV2.HelpConfig.csproj.CoreCompileInputs.cache
+C:\Projects\GitHub\WebApiChartsInvestV2\src\WebApiChartsInvestV2.HelpConfig\obj\Debug\net5.0\WebApiChartsInvestV2.HelpConfig.dll
+C:\Projects\GitHub\WebApiChartsInvestV2\src\WebApiChartsInvestV2.HelpConfig\obj\Debug\net5.0\refint\WebApiChartsInvestV2.HelpConfig.dll
+C:\Projects\GitHub\WebApiChartsInvestV2\src\WebApiChartsInvestV2.HelpConfig\obj\Debug\net5.0\WebApiChartsInvestV2.HelpConfig.pdb
+C:\Projects\GitHub\WebApiChartsInvestV2\src\WebApiChartsInvestV2.HelpConfig\obj\Debug\net5.0\ref\WebApiChartsInvestV2.HelpConfig.dll

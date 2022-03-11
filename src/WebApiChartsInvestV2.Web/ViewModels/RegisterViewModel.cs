@@ -22,5 +22,16 @@ namespace WebApiChartsInvestV2.Web.ViewModels
         [Display(Name = "Confirm the Password")]
         [Compare("Password", ErrorMessage = "Passwords do not match")]
         public string ConfirmPassword { get; set; }
+
+        [Display(Name = "First Name")]
+        [Required(ErrorMessage = "O First Name é obrigatório")]
+        public string FirstName { get; set; }
+
+        [Display(Name = "Last Name")]
+        [Required(ErrorMessage = "O Last Name é obrigatório")]
+        public string LastName { get; set; }
+
+        [Display(Name = "Image")]
+        public string Image { get; set; }
     }
 }

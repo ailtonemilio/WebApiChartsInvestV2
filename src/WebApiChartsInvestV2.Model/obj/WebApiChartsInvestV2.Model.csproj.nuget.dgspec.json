@@ -1,33 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ailto\\source\\repos\\WebApiChartsInvestV2\\src\\WebApiChartsInvestV2.Model\\WebApiChartsInvestV2.Model.csproj": {}
+    "C:\\Projects\\GitHub\\WebApiChartsInvestV2\\src\\WebApiChartsInvestV2.Model\\WebApiChartsInvestV2.Model.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ailto\\source\\repos\\WebApiChartsInvestV2\\src\\WebApiChartsInvestV2.Model\\WebApiChartsInvestV2.Model.csproj": {
+    "C:\\Projects\\GitHub\\WebApiChartsInvestV2\\src\\WebApiChartsInvestV2.Model\\WebApiChartsInvestV2.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ailto\\source\\repos\\WebApiChartsInvestV2\\src\\WebApiChartsInvestV2.Model\\WebApiChartsInvestV2.Model.csproj",
+        "projectUniqueName": "C:\\Projects\\GitHub\\WebApiChartsInvestV2\\src\\WebApiChartsInvestV2.Model\\WebApiChartsInvestV2.Model.csproj",
         "projectName": "WebApiChartsInvestV2.Model",
-        "projectPath": "C:\\Users\\ailto\\source\\repos\\WebApiChartsInvestV2\\src\\WebApiChartsInvestV2.Model\\WebApiChartsInvestV2.Model.csproj",
+        "projectPath": "C:\\Projects\\GitHub\\WebApiChartsInvestV2\\src\\WebApiChartsInvestV2.Model\\WebApiChartsInvestV2.Model.csproj",
         "packagesPath": "C:\\Users\\ailto\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ailto\\source\\repos\\WebApiChartsInvestV2\\src\\WebApiChartsInvestV2.Model\\obj\\",
+        "outputPath": "C:\\Projects\\GitHub\\WebApiChartsInvestV2\\src\\WebApiChartsInvestV2.Model\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
           "C:\\Users\\ailto\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://www.nuget.org/api/v2/": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
@@ -75,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

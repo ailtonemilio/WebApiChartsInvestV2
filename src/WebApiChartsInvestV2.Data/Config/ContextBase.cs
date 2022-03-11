@@ -32,7 +32,7 @@ namespace WebApiChartsInvestV2.Data.Config
         //}
         private string GetStringConectionConfig()
         {
-            string strCon = "Data Source=EMILIOJR\\SQLEXPRESS;Initial Catalog=ChartsInvest;Integrated Security=False;User ID=sa;Password=Ae190273;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False";
+            string strCon = "Data Source=localhost;Initial Catalog=ChartsInvest;Integrated Security=False;User ID=sa;Password=Ae190273;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False";
             // string strCon = "Server=tcp:canaldevcore.database.windows.net,1433;Initial Catalog=dev;Persist Security Info=False;User ID=valdir;Password=@Beatriz222;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             return strCon;
         }

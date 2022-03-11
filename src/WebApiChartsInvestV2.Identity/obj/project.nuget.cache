@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+E3uo38CLNWIXSkw/jpCiCg2JlSjBcQTviivNToT7Ep4iilPIm1UDacLT0DjLSiPWZN7HG18gKGj1PRH2J+S/w==",
+  "dgSpecHash": "7l/6gKAUGjQbuXpKITNL9+s0n1WYd+IgcTF/peWYGulYY4+pDACw+6aec+GRTb0hb1+JrDBjKOmQA4cZ9rFZBA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ailto\\source\\repos\\WebApiChartsInvestV2\\src\\WebApiChartsInvestV2.Identity\\WebApiChartsInvestV2.Identity.csproj",
+  "projectFilePath": "C:\\Projects\\GitHub\\WebApiChartsInvestV2\\src\\WebApiChartsInvestV2.Identity\\WebApiChartsInvestV2.Identity.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ailto\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ailto\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.4\\microsoft.aspnetcore.cryptography.internal.5.0.4.nupkg.sha512",
