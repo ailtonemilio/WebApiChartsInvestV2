@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31129.286
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.UI", "1.UI", "{4E8CCD66-685C-42DD-87A1-C5228BB9ECD4}"
 EndProject
@@ -18,6 +18,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiChartsInvestV2.Identity", "src\WebApiChartsInvestV2.Identity\WebApiChartsInvestV2.Identity.csproj", "{243B0299-17DC-490F-9378-1C5B2406665B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.Help", "5.Help", "{70735CBC-523A-4E9C-9B1E-E9C03A7ADEA0}"
+	ProjectSection(SolutionItems) = preProject
+		ReadME.txt = ReadME.txt
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiChartsInvestV2.HelpConfig", "src\WebApiChartsInvestV2.HelpConfig\WebApiChartsInvestV2.HelpConfig.csproj", "{EEE58399-6DD4-4C2D-AF70-A39FAA9CA4BD}"
 EndProject

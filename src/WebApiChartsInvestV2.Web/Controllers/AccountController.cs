@@ -39,7 +39,10 @@ namespace WebApiChartsInvestV2.Web.Controllers
                 var user = new ApplicationUser
                 {
                     UserName = model.UserName,
-                    Email = model.Email
+                    Email = model.Email,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    Image = model.Image    
                 };
 
                 // Armazena os dados do usuário na tabela AspNetUsers
@@ -59,7 +62,7 @@ namespace WebApiChartsInvestV2.Web.Controllers
                     }
 
                     await signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("index", "home");
+                    return RedirectToAction("login", "account");
                 }
 
                 // Se houver erros então inclui no ModelState
