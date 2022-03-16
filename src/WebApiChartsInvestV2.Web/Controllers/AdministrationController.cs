@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace WebApiChartsInvestV2.Web.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public class AdministrationController : Controller
     {
         private readonly RoleManager<IdentityRole> roleManager;
